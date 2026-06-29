@@ -2,23 +2,98 @@
 <html>
 <head>
     <title>이나경 소개 페이지</title>
+    <style>
+
+body {
+    background-color: white
+    ;
+}
+h1 {
+    color: blue;
+}
+div {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+button{
+    background-color:black;
+    color:white;
+    padding:15px;
+}
+
+button:hover{
+    background-color:white;
+    color:black;
+}
+img:hover{
+    width:700px;
+    border-radius: 10px;
+}
+.profile-box:hover{
+    background-color:#020202;
+}
+button{
+    transition:0.3s;
+}
+button:hover{
+    cursor:pointer;
+}
+img:hover{
+    transition:0.3s;
+}
+img{
+    transform:scale(1.1);
+}
+img{
+    opacity: 0.7;
+}
+img:hover{
+    opacity: 1;
+}
+.profile-box:hover{
+    transition:0.3s;
+}
+.profile-box:hover{
+    transform:translateY(-10px);
+}
+.container{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    align-items:flex-start;
+}
+.profile-box{
+    box-shadow: 0 15px 15px rgba(0,0,0,0.3);
+}
+body{
+    font-family: 'arial', sans-serif;
+}
+</style>
 </head>
 <body>
     <h1>프로미스나인 이나경</h1>
-    <img src="이나경.webp" alt="이나경">
-    <div>
+    <div class="container">
+    <img src="이나경.webp" alt="이나경" width="300">
+    <div class="profile-box">
     <h2>소개</h2>
-    <p>이름: 이나경</p>
-    <p>생년월일: 2000년 6월 1일</p>
-    <p>소속 그룹: 프로미스나인(fromis_9)</p>
-    <p>직업:가수,배우</p>
-    <p>별명:나꼬</p>
-    <p>출신:광주광역시</p>
-    <p>데뷔:2018년 프로미스나인 데뷔</p>
+    <ul>
+    <li>이름: 이나경</li>
+    <li>생년월일: 2000년 6월 1일</li>
+    <li>소속 그룹: 프로미스나인(fromis_9)</li>
+    <li>직업:가수, 배우</li>
+    <li>별명:나꼬</li>
+    <li>출신:광주광역시</li>
+    <li>데뷔:2018년 프로미스나인 데뷔</li>
+    </ul>
+    </div>
     </div>
     <div>
-    <h2>공식 홈페이지</h2>
-    <p><a href="https://pledis.co.kr/ko/artist/detail/fromisnine/" target="_blank">프로미스나인 공식 홈페이지</a></p>
+    <h2>나경이 보러가기</h2>
+    
+    <p><a href="https://namu.wiki/w/%EC%9D%B4%EB%82%98%EA%B2%BD(%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4%EB%82%98%EC%9D%B8)" target="_blank">
+        <button>나경이 보러가기</button></a></p>
+   
     </div>
 </body>
 </html>
