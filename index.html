@@ -39,10 +39,8 @@ button:hover{
 img:hover{
     transform:scale(1.08);
     border-radius: 10px;
-    transition:0.3s;
-    opacity: 1;
 }
-.profile-box:hover{
+.profile:hover{
     background-color:#020202;
 }
 
@@ -51,9 +49,12 @@ border-radius:20px;
 box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 transition:0.3s;
 }
-.profile-box:hover{
+#profile:hover{
     transition:0.3s;
     transform:translateY(-10px);
+}
+#profile{
+    display:none;
 }
 .container{
     display:flex;
@@ -61,7 +62,7 @@ transition:0.3s;
     justify-content:center;
     align-items:flex-start;
 }
-.profile-box{
+#profile{
     background:white;
     border:none;
     border-radius:20px;
@@ -87,17 +88,11 @@ input{
     <h1>프로미스나인 이나경</h1>
     <div class="container">
     <img src="이나경.webp" alt="이나경" width="300">
-    <div class="profile-box">
-    <h2>소개</h2>
-    <ul>
-    <li>이름: 이나경</li>
-    <li>생년월일: 2000년 6월 1일</li>
-    <li>소속 그룹: 프로미스나인(fromis_9)</li>
-    <li>직업:가수, 배우</li>
-    <li>별명:나꼬</li>
-    <li>출신:광주광역시</li>
-    <li>데뷔:2018년 프로미스나인 데뷔</li>
-    </ul>
+        <button id="toggleBtn">
+            프로필 불러오기
+        </button>
+
+        <div id="profile">
     </div>
     </div>
     <div>
@@ -107,15 +102,63 @@ input{
         <button>나경이 보러가기</button></a></p>
    </div>
     <div>
-    <button onclick="hello()">인사하기</button>
+    <button id="helloBtn">인사하기</button>
     </div>
 <input type="text" id="nameInput">
 
 <button onclick="showName()">
 확인
 </button>
-<p id="result"></p>
+
+
 <script>
+    const member = {
+    name: "이나경",
+    age: 26,
+    birthday: "2000년 6월 1일",
+    hometown:"광주광역시",
+    job:"가수, 배우",
+    group: "프로미스나인",
+    debut:"2018년",
+    position: "리드보컬",
+    nickname: "나꼬, 바보대장, 동그래미꼬"
+}
+let isOpen = false;
+
+function loadProfile(){
+    const profile = document.getElementById("profile");
+    profile.style.display = "block";
+    profile.innerHTML = `
+<h2>${member.name}</h2>
+<p>나이: ${member.age}</p>
+<p>생년월일: ${member.birthday}</p>
+<p>출신: ${member.hometown}</p>
+<p>직업: ${member.job}</p>
+<p>소속 그룹: ${member.group}</p>
+<p>데뷔: ${member.debut}</p>
+<p>포지션: ${member.position}</p>
+<p>별명: ${member.nickname}</p>
+`;
+}
+function hideProfile(){
+    const profile = document.getElementById("profile");
+    profile.style.display = "none";
+    profile.innerHTML = "";
+}
+function toggleProfile(){
+    if(isOpen){
+        hideProfile();
+        isOpen = false;
+        document.getElementById("toggleBtn").innerText = "프로필 불러오기";
+    }else{
+        loadProfile();
+        document.getElementById("toggleBtn").innerText = "프로필 닫기";
+        isOpen = true;
+    }
+}
+document.getElementById("toggleBtn").addEventListener("click", toggleProfile);
+
+
 function hello() {
     let name = "이나경";
     let age = 26;
